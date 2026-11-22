@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { DayPilot, DayPilotScheduler } from "@daypilot/daypilot-lite-react";
 
 const Scheduler = () => {
@@ -6,8 +6,6 @@ const Scheduler = () => {
 
   const [theme, setTheme] = useState("scheduler_default");
   const [startDate] = useState("2026-07-01");
-  const [resources, setResources] = useState([]);
-  const [events, setEvents] = useState([]);
 
   const onTimeRangeSelected = async (args) => {
     const dp = args.control;
@@ -23,8 +21,7 @@ const Scheduler = () => {
     });
   };
 
-  useEffect(() => {
-    setResources([
+  const [resources] = useState(() => [
       { name: "Resource A", id: "A" },
       { name: "Resource B", id: "B" },
       { name: "Resource C", id: "C" },
@@ -32,9 +29,9 @@ const Scheduler = () => {
       { name: "Resource E", id: "E" },
       { name: "Resource F", id: "F" },
       { name: "Resource G", id: "G" },
-    ]);
+  ]);
 
-    setEvents([
+  const [events] = useState(() => [
       {
         id: 1,
         text: "Event 1",
@@ -62,20 +59,20 @@ const Scheduler = () => {
       },
       {
         id: 4,
-        text: "Event 3",
+        text: "Event 4",
         start: "2026-07-02T00:00:00",
         end: "2026-07-08T00:00:00",
         resource: "E",
         barColor: "#cc0000",
         barBackColor: "#ea9999",
       },
-    ]);
-  }, []);
+  ]);
 
   return (
     <div>
-      <div className="space">
-        <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+      <div className="space theme-toolbar">
+        <label htmlFor="theme">Theme</label>
+        <select id="theme" value={theme} onChange={(e) => setTheme(e.target.value)}>
           <option value="scheduler_default">Default</option>
           <option value="scheduler_green">Green</option>
           <option value="scheduler_white">White</option>

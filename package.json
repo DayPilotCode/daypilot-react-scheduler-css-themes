@@ -1,5 +1,5 @@
 {
-  "name": "react-scheduler-css-themes",
+  "name": "how-to-use-css-themes-with-the-react-scheduler-component",
   "license": "Apache-2.0",
   "private": true,
   "version": "0.0.0",
@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@daypilot/daypilot-lite-react": "^5.3.0",
+    "@daypilot/daypilot-lite-react": "^6.2.0",
     "react": "^19.2.2",
     "react-dom": "^19.2.2"
   },

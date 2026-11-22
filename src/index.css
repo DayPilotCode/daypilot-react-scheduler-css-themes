@@ -3,7 +3,6 @@
 @import url('themes/scheduler_transparent.css');
 @import url('themes/scheduler_white.css');
 
-
 body .scheduler_default_rowheader_inner {
-    padding-left: 20px;
+  padding-left: 20px;
 }
